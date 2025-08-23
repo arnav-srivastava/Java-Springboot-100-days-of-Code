@@ -9,9 +9,11 @@ public class TryCatch {
         // try-catch-finally example
         try{
             int i=10/0;
-        } catch (ArithmeticException e) {
+        }
+        catch (ArithmeticException e) {
             System.out.println("Cannot divide by zero "+e.getMessage());
-        }finally {
+        }
+        finally {
             System.out.println("Finally execution completed");
         }
 
