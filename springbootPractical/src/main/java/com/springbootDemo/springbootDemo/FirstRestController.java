@@ -1,11 +1,9 @@
 package com.springbootDemo.springbootDemo;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/app")
+@RequestMapping("/users")
 public class FirstRestController {
 
     @GetMapping("/first")
@@ -13,4 +11,17 @@ public class FirstRestController {
         return "Hello From Springboot";
     }
 
-}
+      // URL: http://localhost:8080/users/101
+    @GetMapping("/{id}")
+    public String getUserById(@PathVariable("id") int userId) {
+        return "User ID: " + userId;
+    }
+
+    // URL: http://localhost:8080/users?id=101
+    @GetMapping
+    public String getUserByQuery(@RequestParam("id") int userId) {
+        return "User ID: " + userId;
+    }
+
+
+    }
