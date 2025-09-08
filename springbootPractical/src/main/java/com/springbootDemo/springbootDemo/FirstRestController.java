@@ -23,5 +23,10 @@ public class FirstRestController {
         return "User ID: " + userId;
     }
 
+    // http://localhost:8080/users
+    @PostMapping
+    public User createUser(@RequestBody User user) {
+        return user;
+    }
 
     }
