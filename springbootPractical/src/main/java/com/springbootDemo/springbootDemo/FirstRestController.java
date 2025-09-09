@@ -1,5 +1,6 @@
 package com.springbootDemo.springbootDemo;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,6 +28,17 @@ public class FirstRestController {
     @PostMapping
     public User createUser(@RequestBody User user) {
         return user;
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> delUser(@PathVariable int id, @RequestBody User user) {
+        user.setName("new_Name");
+        return ResponseEntity.ok(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delUser(@PathVariable int id) {
+        return ResponseEntity.ok("USER WITH ID "+id+" deleted");
     }
 
     }
